@@ -25,14 +25,14 @@ public class Leaky {
             System.out.print("Enter the input bandwidth for the group " + (i + 1) + ": ");
             in_bandwidth[i] = sc.nextInt();
 
-            if ((total_packets + no_packets[i]) <= bucket_size)
+            if (total_packets + no_packets[i] <= bucket_size)
                 total_packets += no_packets[i];
             else {
                 do {
                     System.out.println("Bucket overflow");
                     System.out.print("Enter value less than " + (bucket_size - total_packets) + ": ");
                     no_packets[i] = sc.nextInt();
-                } while ((total_packets + no_packets[i]) > bucket_size);
+                } while (total_packets + no_packets[i] > bucket_size);
 
                 total_packets += no_packets[i];
             }
