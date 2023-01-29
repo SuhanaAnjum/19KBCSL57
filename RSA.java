@@ -34,7 +34,7 @@ public class RSA {
         this.bitLength = 1024;
     }
 
-    public static void main(String[] args) throws IOException {
+    public static void main (String[] args) throws IOException {
         RSA rsa = new RSA();
         DataInputStream in = new DataInputStream(System.in);
 
@@ -51,19 +51,19 @@ public class RSA {
         System.out.println("Decrypted string: " + new String(decrypted));
     }
 
-    private static String bytesToString(byte[] encrypted) {
+    private static String bytesToString (byte[] encrypted) {
         String s = "";
         for (byte b: encrypted) s += Byte.toString(b);
               // same as method name ^^^^^^^^^^^^^
         return s;
     }
 
-    public byte[] encrypt(byte[] msg) {
+    public byte[] encrypt (byte[] msg) {
         return (new BigInteger(msg)).modPow(e, N).toByteArray();
                            //  encrypt -> e ^
     }
 
-    public byte[] decrypt(byte[] msg) {
+    public byte[] decrypt (byte[] msg) {
         return (new BigInteger(msg)).modPow(d, N).toByteArray();
                           //  dencrypt -> d ^
     }
