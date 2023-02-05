@@ -25,8 +25,8 @@ public class Server {
                 System.out.println(rcvMsg);
 
             sendMsg = keyRead.readLine();
-            pw.println(sendMsg);
-            pw.flush();
+            pWriter.println(sendMsg);
+            pWriter.flush();
         }
     }
 }
