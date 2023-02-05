@@ -4,6 +4,7 @@ public class CRC {
     public static void main (String args[]) {
         Scanner sc = new Scanner(System.in);
 
+        // same
         System.out.print("Enter data stream: ");
         String datastream = sc.nextLine();
 
@@ -27,6 +28,7 @@ public class CRC {
             if (data[i] == 1)
                 for (int j = 0; j < divisor.length; j++)
                     data[i+j] ^= divisor[j];
+        // untill here
 
         System.out.print("The CRC code is: ");
         for (int i = 0; i < l1; i++)
@@ -36,29 +38,31 @@ public class CRC {
             System.out.print(data[i]);
         System.out.println();
 
+        // same as above, only diff is this first line
         System.out.print("Enter CRC Code: ");
         datastream = sc.nextLine();
 
         System.out.print("Enter generator: ");
         generator = sc.nextLine();
 
-        int l4 = datastream.length();
-        int l5 = generator.length();
-        int l6 = l4 + l5 - 1;
+        l1 = datastream.length();
+        l2 = generator.length();
+        l3 = l1 + l2 - 1;
 
-        data = new int[l6];
-        divisor = new int[l5];
+        data = new int[l1];
+        divisor = new int[l2];
 
-        for (int i = 0; i < l4; i++)
+        for (int i = 0; i < l1; i++)
             data[i] = Integer.parseInt(datastream.charAt(i) + "");
 
-        for (int i = 0; i < l5; i++)
+        for (int i = 0; i < l2; i++)
             divisor[i] = Integer.parseInt(generator.charAt(i) + "");
 
-        for (int i = 0; i < l4; i++)
+        for (int i = 0; i < l1; i++)
             if (data[i] == 1)
                 for (int j = 0; j < divisor.length; j++)
                     data[i+j] ^= divisor[j];
+        // untill here
 
         boolean valid = true;
         for (int i = 0; i < data.length; i ++)
